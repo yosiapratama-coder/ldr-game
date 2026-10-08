@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #10051d;
+}
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at top, #ff7eb3, #7b2cbf 45%, #16001f);
+    z-index: 100;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* =========================
+   START CARD
+========================= */
+
+.start-card,
+.win-card {
+    width: min(90%, 500px);
+    padding: 40px 25px;
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: 0 20px 70px rgba(0,0,0,.4);
+}
+
+.big-heart {
+    font-size: 90px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.start-card h1 {
+    font-size: 60px;
+    margin-top: 5px;
+}
+
+.start-card h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.start-card p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#startBtn,
+#restartBtn {
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff4f9a, #ff1e56);
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 8px 25px rgba(255,30,86,.4);
+    transition: .3s;
+}
+
+#startBtn:hover,
+#restartBtn:hover {
+    transform: scale(1.06);
+}
+
+/* =========================
+   GAME
+========================= */
+
+.game-screen {
+    width: 100vw;
+    height: 100vh;
+    background:
+        linear-gradient(
+            to bottom,
+            #201040 0%,
+            #51206f 45%,
+            #ff7aa8 100%
+        );
+    position: relative;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.game-header {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    color: white;
+    font-weight: bold;
+}
+
+.progress {
+    width: 180px;
+    height: 12px;
+    margin-top: 6px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,.25);
+}
+
+#loveBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff2f7d, #ffb3d1);
+    transition: .3s;
+}
+
+.score {
+    font-size: 20px;
+}
+
+/* =========================
+   GAME AREA
+========================= */
+
+#gameArea {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    bottom: 120px;
+    overflow: hidden;
+}
+
+/* =========================
+   CLOUDS
+========================= */
+
+.cloud {
+    position: absolute;
+    font-size: 55px;
+    opacity: .65;
+    animation: cloudMove 18s linear infinite;
+}
+
+.cloud1 {
+    top: 15%;
+    left: -100px;
+}
+
+.cloud2 {
+    top: 32%;
+    left: 40%;
+    animation-duration: 25s;
+}
+
+/* =========================
+   CITY
+========================= */
+
+.city {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    font-size: 70px;
+}
+
+.left-city {
+    left: 0;
+}
+
+.right-city {
+    right: 0;
+}
+
+/* =========================
+   ROAD
+========================= */
+
+.distance {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: 0;
+    height: 35%;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: #26232b;
+    border-top: 5px solid #aaa;
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    top: 31px;
+    left: 0;
+    width: 100%;
+    border-top: 6px dashed #fff;
+}
+
+.distance-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 90px;
+    color: rgba(255,255,255,.8);
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   CHARACTER
+========================= */
+
+.character {
+    position: absolute;
+    bottom: 50px;
+    width: 75px;
+    text-align: center;
+    transition: left .05s linear;
+    z-index: 10;
+}
+
+.character-head {
+    font-size: 45px;
+}
+
+.character-body {
+    font-size: 40px;
+}
+
+.player {
+    left: 15%;
+}
+
+.partner {
+    right: 15%;
+}
+
+.partner-heart {
+    position: absolute;
+    top: -20px;
+    right: 5px;
+    animation: heartbeat 1s infinite;
+}
+
+/* =========================
+   ITEMS
+========================= */
+
+.item {
+    position: absolute;
+    font-size: 35px;
+    cursor: pointer;
+    animation: floating 1s ease-in-out infinite alternate;
+    z-index: 8;
+}
+
+.heart {
+    filter: drop-shadow(0 0 8px #ff4f9a);
+}
+
+.message {
+    filter: drop-shadow(0 0 8px #fff);
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-box {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.15);
+    color: white;
+    opacity: 0;
+    transition: .4s;
+    pointer-events: none;
+}
+
+.message-box.show {
+    opacity: 1;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 30;
+}
+
+.controls button {
+    width: 65px;
+    height: 55px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.2);
+    color: white;
+    font-size: 23px;
+    border: 1px solid rgba(255,255,255,.3);
+    backdrop-filter: blur(8px);
+}
+
+.controls button:active {
+    transform: scale(.9);
+}
+
+.instruction {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255,255,255,.65);
+    font-size: 11px;
+}
+
+/* =========================
+   WIN SCREEN
+========================= */
+
+.celebration {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.win-card h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.win-card p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.final-love {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.win-card h2 {
+    margin-bottom: 25px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floating {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes cloudMove {
+    from {
+        transform: translateX(-100px);
+    }
+
+    to {
+        transform: translateX(110vw);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .start-card h1 {
+        font-size: 48px;
+    }
+
+    .start-card h2 {
+        font-size: 18px;
+    }
+
+    .progress {
+        width: 120px;
+    }
+
+    .character {
+        width: 60px;
+    }
+
+    .character-head {
+        font-size: 35px;
+    }
+
+    .character-body {
+        font-size: 32px;
+    }
+
+    .city {
+        font-size: 45px;
+    }
+
+    .distance {
+        left: 10%;
+        right: 10%;
+    }
+
+    .distance-text {
+        font-size: 9px;
+    }
+
+    .instruction {
+        display: none;
+    }
+}
