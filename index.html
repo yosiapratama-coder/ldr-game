@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDR - Love Across The Distance 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- START SCREEN -->
+    <div id="startScreen" class="screen active">
+        <div class="start-card">
+            <div class="big-heart">💗</div>
+            <h1>LDR</h1>
+            <h2>Love Across The Distance</h2>
+
+            <p>
+                Jarak boleh jauh,<br>
+                tapi cinta tetap dekat ❤️
+            </p>
+
+            <button id="startBtn">💌 Mulai Perjalanan</button>
+        </div>
+    </div>
+
+    <!-- GAME -->
+    <main id="gameScreen" class="game-screen">
+
+        <header class="game-header">
+            <div>
+                <span>❤️ Love</span>
+                <div class="progress">
+                    <div id="loveBar"></div>
+                </div>
+            </div>
+
+            <div class="score">
+                ❤️ <span id="score">0</span>
+            </div>
+        </header>
+
+        <section id="gameArea">
+
+            <div class="cloud cloud1">☁️</div>
+            <div class="cloud cloud2">☁️</div>
+
+            <div class="city left-city">
+                <span>🏠</span>
+                <span>🏢</span>
+                <span>🏠</span>
+            </div>
+
+            <div class="city right-city">
+                <span>🏢</span>
+                <span>🏠</span>
+                <span>🏢</span>
+            </div>
+
+            <!-- DISTANCE -->
+            <div class="distance">
+                <div class="road"></div>
+                <div class="distance-text">
+                    JARAK JAUH<br>
+                    ❤️ CINTA DEKAT ❤️
+                </div>
+            </div>
+
+            <!-- PLAYER -->
+            <div id="player" class="character player">
+                <div class="character-head">👦</div>
+                <div class="character-body">👕</div>
+            </div>
+
+            <!-- PARTNER -->
+            <div id="partner" class="character partner">
+                <div class="character-head">👧</div>
+                <div class="character-body">👗</div>
+                <div class="partner-heart">❤️</div>
+            </div>
+
+            <div id="items"></div>
+
+            <div id="messageBox" class="message-box">
+                💌
+            </div>
+
+        </section>
+
+        <div class="controls">
+            <button id="leftBtn">⬅️</button>
+            <button id="jumpBtn">⬆️</button>
+            <button id="rightBtn">➡️</button>
+        </div>
+
+        <p class="instruction">
+            Gunakan tombol ⬅️ ➡️ atau keyboard untuk bergerak.
+            Tekan ⬆️ untuk melompat.
+        </p>
+
+    </main>
+
+    <!-- WIN SCREEN -->
+    <div id="winScreen" class="screen">
+        <div class="win-card">
+
+            <div class="celebration">
+                💕 ❤️ 💕
+            </div>
+
+            <h1>AKHIRNYA BERTEMU! 🥹</h1>
+
+            <p>
+                Jarak mungkin memisahkan,<br>
+                tapi cinta selalu menemukan jalan.
+            </p>
+
+            <div class="final-love">
+                ❤️ <span id="finalScore">0</span>
+            </div>
+
+            <h2>Distance Can't Stop Us ❤️</h2>
+
+            <button id="restartBtn">
+                🔄 Main Lagi
+            </button>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
